@@ -36,6 +36,7 @@ async def async_setup_entry(
     async_add_entities(sensors, update_before_add=True)
     
 class WarnSensor(BinarySensorEntity):
+    _attr_has_entity_name = True
     
 
     def __init__(self, hass, pill: Pill):
@@ -64,10 +65,6 @@ class WarnSensor(BinarySensorEntity):
     @property
     def device_class(self):
         return BinarySensorDeviceClass.PROBLEM
-    
-    @property
-    def has_entity_name(self):
-        return True
     
     @property
     def translation_key(self) -> str | None:

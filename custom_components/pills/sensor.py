@@ -35,29 +35,19 @@ async def async_setup_entry(
     async_add_entities(sensors, update_before_add=True)
     
 class ConsumptionSensor(SensorEntity):
-    
+    _attr_has_entity_name = True
 
     def __init__(self, hass, pill: Pill):
         super().__init__()
         self.pill = pill
         self.pill.add_listener(self)
         self._device_id = self.pill.device_id
-
-        #self._internal_device_id = device_registry.async_get(hass).async_get_device(identifiers={
-        #            (DOMAIN, self._device_id)
-        #        }).id
         self._unique_id = self._device_id+"_sensor"
-        # self._name = "sensor_entity"
         self._state = datetime.fromisoformat('2024-11-04 00:05:23.283+00:00')
         self._available = True
         self.attrs = {}
         self.entity_id = generate_entity_id("number.{}", self._unique_id, hass=hass)
         
-    # @property
-#     def name(self) -> str:
-#         """Return the name of the entity."""
-#         return self._name
-
     @property
     def unique_id(self) -> str:
         """Return the unique ID of the sensor."""
@@ -70,10 +60,6 @@ class ConsumptionSensor(SensorEntity):
     @property
     def device_class(self):
         return SensorDeviceClass.TIMESTAMP
-    
-    @property
-    def has_entity_name(self):
-        return True
     
     @property
     def translation_key(self) -> str | None:

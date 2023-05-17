@@ -9,7 +9,8 @@
       "user": {
         "data": {
           "pill_name": "Name der Tablette",
-          "pill_size": "Gewicht des Wirkstoffs",
+          "pill_size": "Menge des Wirkstoffs (mg)",
+          "pill_vendor": "Hersteller",
           "pill_warning_days_before_empty": "Wie viele Tage vor leerem Bestand warnen?"
         },
         "description": "Tablette beschreiben",

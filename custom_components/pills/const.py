@@ -2,6 +2,7 @@ DOMAIN = "pills"
 
 CONF_PILL_NAME = "pill_name"
 CONF_PILL_SIZE = "pill_size"
+CONF_PILL_VENDOR = "pill_vendor"
 CONF_SENSOR_BEFORE_EMPTY = "pill_warning_days_before_empty"
 CONF_PILLS = "pills"
 

@@ -9,7 +9,8 @@
       "user": {
         "data": {
           "pill_name": "Pill name",
-          "pill_size": "Agent weight"
+          "pill_size": "Agent weight",
+          "pill_vendor": "Vendor"
         },
         "description": "Add the name of the pill",
         "title": "Add Details"

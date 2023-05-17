@@ -35,11 +35,9 @@ async def async_setup_entry(
 
     platform = entity_platform.async_get_current_platform()
 
-    # This will call Entity.set_sleep_timer(sleep_time=VALUE)
     platform.async_register_entity_service(
       SERVICE_TAKE,
-      {
-      },
+      { },
       "take",
     )
 
@@ -54,6 +52,9 @@ async def async_setup_entry(
 
 
 class PillNumber(RestoreNumber):
+    _attr_has_entity_name = True
+    
+  
     def __init__(self, hass, pill: Pill, time):
         super().__init__()
         self.pill = pill
@@ -61,7 +62,10 @@ class PillNumber(RestoreNumber):
         self._unique_id = self._device_id+"-"+time
         self._time = time
         self._available = True
-        self.attrs = { 'dose': 'dose', 'time': time }
+        if time != PILLS_SUPPLY:
+          self.attrs = { 'dose': 'dose', 'time': time }
+        else:
+          self.attrs = {}
         self.entity_id = generate_entity_id("number.{}", self._unique_id, hass=hass)
         self.pill.add_listener(self)
     
@@ -92,10 +96,6 @@ class PillNumber(RestoreNumber):
     @property
     def native_value(self):
         return self.pill.get_n(self._time)
-
-    @property
-    def has_entity_name(self):
-        return True
 
     @property
     def unique_id(self) -> str:

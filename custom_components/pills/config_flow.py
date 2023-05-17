@@ -14,19 +14,10 @@ PILL_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_PILL_NAME): cv.string,
         vol.Optional(CONF_PILL_SIZE): cv.string,
+        vol.Optional(CONF_PILL_VENDOR): cv.string,
         vol.Required(CONF_SENSOR_BEFORE_EMPTY, default=10): cv.positive_int
     }
 )
-
-
-def validate_path(path: str) -> None:
-    """Validates a GitHub repo path.
-
-    Raises a ValueError if the path is invalid.
-    """
-    if len(path.split("/")) != 2:
-        raise ValueError
-
 
 class PillsConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Github Custom config flow."""

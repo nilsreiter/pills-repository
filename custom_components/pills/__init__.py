@@ -6,16 +6,7 @@ from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import ServiceCall, callback
 
-from .const import (
-    DOMAIN,
-    CONF_PILL_NAME,
-    CONF_PILL_SIZE,
-    CONF_PILLS,
-    PILLS_MORNING,
-    PILLS_NOON,
-    PILLS_EVENING,
-    PILLS_NIGHT
-)
+from .const import *
 
 from .pill import Pill
 
@@ -45,7 +36,7 @@ async def async_setup_entry(
     device_registry.async_get_or_create(
         config_entry_id=entry.entry_id,
         entry_type=DeviceEntryType.SERVICE,
-        manufacturer="Nils",
+        manufacturer=entry.data.get(CONF_PILL_VENDOR, None),
         model=entry.data[CONF_PILL_NAME]+" "+entry.data.get(CONF_PILL_SIZE, ""),
         name=entry.data[CONF_PILL_NAME]+" "+entry.data.get(CONF_PILL_SIZE, ""),
         identifiers={(DOMAIN, entry.data[CONF_PILL_NAME].lower()+"-"+entry.data.get(CONF_PILL_SIZE, "").lower())},
