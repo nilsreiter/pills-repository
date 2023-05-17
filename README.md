@@ -6,7 +6,9 @@ Take stock of your dogs medicinal supplies.
 
 ## Description
 
-The integration provides several entities
+The integration provides several entities to track the state and supply levels of tablets. For each tablet type, the component stores the number of tablets we have (typically printed on the box), together with the prescribed doses in the morning, at noon, in the evening and at night. Based on this information, we can predict when we run out of tablets -- this is the state of the main sensor. A second "problem sensor" can signal the need to go to the vet before we run out of tablets.
+
+To make this really useful, the component adds a new service call `pills.take_pills`, which can be called to signal that the correct amount of tablets has been taken. This leads to an update of the supply levels of each consumed pill type.
 
 ## Back story
 
