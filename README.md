@@ -10,6 +10,6 @@ The integration provides several entities
 
 ## Back story
 
-![](img/bona.jpg)
+![](img/bona.jpeg)
 
 This is Bona, our 12 year old dog.
