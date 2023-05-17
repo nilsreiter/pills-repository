@@ -1,0 +1,11 @@
+{
+  "codeowners": ["@nilsreiter"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/nilsreiter/pills-repository",
+  "domain": "pills",
+  "iot_class": "calculated",
+  "name": "Pills",
+  "requirements": [],
+  "version": "1.0.0"
+}

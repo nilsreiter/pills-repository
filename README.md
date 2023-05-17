@@ -1,3 +1,5 @@
-# pills-repository
+# Pills for Home Assistant
 
-Track pills for the pet with home assistant
+Take stock of your dogs medicinal supplies.
+
+## Installation

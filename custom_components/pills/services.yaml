@@ -1,0 +1,5 @@
+take:
+  description: Take pills
+  target:
+      entity:
+        domain: number
