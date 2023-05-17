@@ -1,4 +1,4 @@
-import json
+import logging
 import voluptuous as vol
 import homeassistant.helpers.config_validation as cv
 from typing import Any, Callable, Dict, Optional
@@ -15,15 +15,10 @@ from homeassistant.helpers.typing import (
 
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.const import EntityCategory
-from homeassistant.const import (
-    ATTR_NAME,
-    CONF_ACCESS_TOKEN,
-    CONF_NAME,
-    CONF_PATH,
-    CONF_URL,
-)
 from .const import *
 from .pill import *
+
+_LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(
     hass: core.HomeAssistant,
@@ -82,6 +77,7 @@ class PillNumber(RestoreNumber):
     
     
     def take(self):
+      _LOGGER.debug("Calling service_take")
       self.pill.take(self._time)
     
     @property

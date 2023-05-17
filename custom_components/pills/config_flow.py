@@ -14,6 +14,7 @@ PILL_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_PILL_NAME): cv.string,
         vol.Optional(CONF_PILL_SIZE): cv.string,
+        vol.Optional(CONF_PILL_AGENT): cv.string,
         vol.Optional(CONF_PILL_VENDOR): cv.string,
         vol.Required(CONF_SENSOR_BEFORE_EMPTY, default=10): cv.positive_int
     }

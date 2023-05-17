@@ -1,15 +1,6 @@
-take:
+take_pills:
   name: Take pills
   description: Registers the consumption of the specified number of pills at a certain time.
   target:
     entity:
       domain: number
-      filter:
-        attribute: 
-          dose:
-            - dose
-  fields:
-    test:
-      filter:
-        attribute: 
-          dose: "dose"

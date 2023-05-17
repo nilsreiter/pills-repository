@@ -5,6 +5,7 @@ CONF_PILL_SIZE = "pill_size"
 CONF_PILL_VENDOR = "pill_vendor"
 CONF_SENSOR_BEFORE_EMPTY = "pill_warning_days_before_empty"
 CONF_PILLS = "pills"
+CONF_PILL_AGENT = "pill_agent"
 
 PILLS_MORNING = "pills_taking_morning"
 PILLS_NOON = "pills_taking_noon"
@@ -16,7 +17,7 @@ UNIT = "pcs."
 ATTR_DAILY = "daily"
 ATTR_DAYS_REMAINING = "days_remaining"
 
-SERVICE_TAKE = "take"
+SERVICE_TAKE = "take_pills"
 
 STRING_PROBLEM_ENTITY = "binary_sensor"
 STRING_SENSOR_ENTITY = "sensor_entity"

@@ -13,13 +13,6 @@ from homeassistant.helpers.typing import (
 from homeassistant.helpers.event import async_track_state_change_event
 from homeassistant.util.dt import now
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity, PLATFORM_SCHEMA
-from homeassistant.const import (
-    ATTR_NAME,
-    CONF_ACCESS_TOKEN,
-    CONF_NAME,
-    CONF_PATH,
-    CONF_URL,
-)
 from .const import *
 from .pill import Pill
 
