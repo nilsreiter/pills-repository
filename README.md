@@ -39,3 +39,41 @@ This is an excerpt of my `templates.yaml` file, making use of [custom templates,
 In addition to these two template entities (for no less than six different tablet types), this requires `input_number` entities for morning, evening and noon, because -- of course -- the dog gets a different combination of tablets every time (and this also changes from time to time).
 
 Because this is very repetitive and makes all my files unreadable, I created this custom component (also, to find out if I could, and because it was fun).
+
+## Helpful Templates
+
+My setup uses the following templates:
+
+### Generate a report on the supply levels
+
+```jinja2
+{%- set pill_entities = integration_entities('pills') %}
+{%- for p in pill_entities %}
+{%- if p.startswith('number') and p.endswith('supply') -%}
+
+- {{ device_attr(p, 'name') }}: Noch {{ states(p) }} Stück
+{% endif -%}
+{% endfor %}
+```
+
+### Generate a list of tablet doses for each time slot
+
+```jinja2
+{%- set pill_entities = integration_entities('pills') %}
+
+{%- if (now().hour < 11) %}
+{%- set time_key = "morning" %}
+{%- elif (now().hour < 15) %}
+{%- set time_key = "noon" %}
+{%- elif (now().hour < 21) %}
+{%- set time_key = "evening" %}
+{%- else %}
+{%- set time_key = "night" %}
+{%- endif %}
+
+{%- for p in pill_entities %}
+{%- if p.startswith('number') and p.endswith(time_key) -%}
+- {{ device_attr(p, 'name') }}: {{ states(p) }} Stück
+{% endif -%}
+{% endfor %}
+```
