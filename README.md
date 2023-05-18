@@ -47,7 +47,10 @@ My setup uses the following templates:
 ### Generate a report on the supply levels
 
 ```jinja2
+{# Get a list of all entities provided by the component #}
 {%- set pill_entities = integration_entities('pills') %}
+
+{# Print those (in a markdown list) that represent the supply level #}
 {%- for p in pill_entities %}
 {%- if p.startswith('number') and p.endswith('supply') -%}
 
@@ -59,8 +62,11 @@ My setup uses the following templates:
 ### Generate a list of tablet doses for each time slot
 
 ```jinja2
+{# Get a list of all entities provided by the component #}
 {%- set pill_entities = integration_entities('pills') %}
 
+{# Set the time key according to the current time #}
+{# Adapt to your schedule if needed, in particular the hours #}
 {%- if (now().hour < 11) %}
 {%- set time_key = "morning" %}
 {%- elif (now().hour < 15) %}
@@ -71,9 +77,13 @@ My setup uses the following templates:
 {%- set time_key = "night" %}
 {%- endif %}
 
+{# Iterate over all entities #}
 {%- for p in pill_entities %}
+
+{# Print the ones matching the current time #}
 {%- if p.startswith('number') and p.endswith(time_key) -%}
 - {{ device_attr(p, 'name') }}: {{ states(p) }} Stück
 {% endif -%}
+
 {% endfor %}
 ```
