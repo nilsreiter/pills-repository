@@ -2,6 +2,18 @@
 
 Take stock of your dogs medicinal supplies.
 
+Key ideas:
+
+- The component is added once for each tablet type 
+- Each tablet type is represented as a service/device and offers multiple entities
+- Supply: How many pieces of the tablet type we have left (entity type `number`)
+- Morning/Noon/Evening/Night: How many pieces need to be taken (settable in steps of 0.25)? (four entities of type `number`)
+- Empty: When will the supply be empty? (sensor of device class `timestamp`)
+- Soon empty: Do we have to act? (binary sensor of device class `problem`)
+
+
+![](img/screenshot-device.png)
+
 ## Installation
 
 ## Description
