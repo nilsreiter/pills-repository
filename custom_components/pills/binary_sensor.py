@@ -44,7 +44,7 @@ class WarnSensor(BinarySensorEntity):
         self.pill = pill
         self.pill.add_listener(self)
         self._device_id = self.pill.device_id
-        self._unique_id = self._device_id+"_binary_sensor"
+        self._unique_id = self._device_id+"_supply_problem"
         self._available = True
         self.attrs = {}
         self.entity_id = generate_entity_id("number.{}", self._unique_id, hass=hass)

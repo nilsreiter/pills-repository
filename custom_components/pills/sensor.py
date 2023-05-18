@@ -35,7 +35,7 @@ class ConsumptionSensor(SensorEntity):
         self.pill = pill
         self.pill.add_listener(self)
         self._device_id = self.pill.device_id
-        self._unique_id = self._device_id+"_sensor"
+        self._unique_id = self._device_id+"_supply_empty"
         self._state = datetime.fromisoformat('2024-11-04 00:05:23.283+00:00')
         self._available = True
         self.attrs = {}

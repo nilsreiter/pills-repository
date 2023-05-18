@@ -54,7 +54,7 @@ class PillNumber(RestoreNumber):
         super().__init__()
         self.pill = pill
         self._device_id = self.pill.device_id
-        self._unique_id = self._device_id+"-"+time
+        self._unique_id = self._device_id+"_"+time
         self._time = time
         self._available = True
         if time != PILLS_SUPPLY:
