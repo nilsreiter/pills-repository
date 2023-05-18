@@ -10,6 +10,7 @@ Key ideas:
 - Morning/Noon/Evening/Night: How many pieces need to be taken (settable in steps of 0.25)? (four entities of type `number`)
 - Empty: When will the supply be empty? (sensor of device class `timestamp`)
 - Soon empty: Do we have to act? (binary sensor of device class `problem`)
+- The component adds a service that can be called in the morning, noon, evening and night. This service reduces the number of tablets left by the specified amount (this could be run as an automation)
 
 
 ![](img/screenshot-device.png)
