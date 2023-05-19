@@ -142,6 +142,6 @@ class PillNumber(RestoreNumber):
         """Return the device info."""
         return DeviceInfo(
             identifiers={ (DOMAIN, self._device_id) },
-            name=self.name
+            name=self.pill.name
           )
     
