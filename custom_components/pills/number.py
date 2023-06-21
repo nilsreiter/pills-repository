@@ -61,6 +61,7 @@ class PillNumber(RestoreNumber):
           self.attrs = { 'dose': 'dose', 'time': time }
         else:
           self.attrs = {}
+        self.hass = hass
         self.entity_id = generate_entity_id("number.{}", self._unique_id, hass=hass)
         self.pill.add_listener(self)
     
